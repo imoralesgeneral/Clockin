@@ -1,0 +1,180 @@
+<div class="limiter animated fadeInRight">
+    <div class="container-login100">
+        <div class="wrap-login100 ">
+
+            <form (ngSubmit)="onSubmit( f )" #f="ngForm" class="login100-form validate-form flex-sb flex-w">
+
+                <span class="login100-form-title p-b-9">
+                  Create a new Admin
+              </span>
+
+                <span *ngIf="f.submitted && f.controls['username'].errors" class="text-danger animated fadeIn">Username is mandatory (Min 5 characters)</span>
+                <div class="wrap-input100 m-b-16">
+                    <input class="input100" type="text" name="username" [(ngModel)]="admin.username" minlength="5" required placeholder="Username">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <span *ngIf="f.submitted && f.controls['name'].errors" class="text-danger animated fadeIn">Name is mandatory (Min 5 characters)</span>
+                <div class="wrap-input100 m-b-16">
+                    <input class="input100" type="text" name="name" [(ngModel)]="admin.name" minlength="5" required placeholder="Name">
+
+                    <span class="focus-input100"></span>
+                </div>
+
+                <span *ngIf="f.submitted && f.controls['email'].errors" class="text-danger animated fadeIn">Email is mandatory</span>
+
+                <div class="wrap-input100 m-b-16">
+                    <input class="input100" type="email" name="email" [(ngModel)]="admin.email" required email placeholder="Email">
+                    <span class="focus-input100"></span>
+
+                </div>
+
+                <span *ngIf="f.submitted && f.controls['password'].errors" class="text-danger animated fadeIn">Min 5 characters</span>
+                <span *ngIf="f.submitted && f.controls['password2'].errors" class="text-danger animated fadeIn">Min 5 characters</span>
+                <span *ngIf="f.submitted && f.controls['password'].value!=f.controls['password2'].value && !f.controls['password'].errors" class="text-danger animated fadeIn">Password is not the same</span>
+                <div class="form-group row">
+                    <div class="wrap-input100 m-b-16 col m-r-12">
+                        <input class="input100" type="password" name="password" [(ngModel)]="admin.password" minlength="5" required placeholder="Password">
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="wrap-input100 m-b-16 col">
+                        <input class="input100" type="password" name="password2" [(ngModel)]="password2" minlength="5" required placeholder="Repeat it">
+                        <span class="focus-input100"></span>
+                    </div>
+                </div>
+
+                <span *ngIf="f.submitted && f.controls['salaryYear'].errors" class="text-danger animated fadeIn">Salary year is mandatory</span>
+                <span *ngIf="f.submitted && !isNumber(f.controls['salaryYear'].value)  && !f.controls['salaryYear'].errors" class="text-danger animated fadeIn">Salary year must contains only digits</span>
+                <span *ngIf="f.submitted && f.controls['holidays'].errors" class="text-danger animated fadeIn">Holiday days is mandatory</span>
+                <span *ngIf="f.submitted && !isNumber(f.controls['holidays'].value) && !f.controls['holidays'].errors" class="text-danger animated fadeIn">Holidays must contains only digits</span>
+                <div class="form-group row">
+
+                    <div class="wrap-input100 m-b-16 col m-r-12">
+                        <input class="input100" type="text" name="salaryYear" [(ngModel)]="admin.salaryYear" minlength="2" required placeholder="Salary Year">
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="wrap-input100 m-b-16 col">
+                        <input class="input100" type="text" name="holidays" [(ngModel)]="admin.holidays" minlength="1" required placeholder="Holidays">
+                        <span class="focus-input100"></span>
+                    </div>
+                </div>
+
+                <span *ngIf="f.submitted && f.controls['payments'].errors" class="text-danger animated fadeIn">Payments is mandatory</span>
+                <span *ngIf="f.submitted && !isNumber(f.controls['payments'].value) && !f.controls['payments'].errors" class="text-danger animated fadeIn">Payments must contains only digits</span>
+                <span *ngIf="f.submitted && f.controls['weeklyHours'].errors" class="text-danger animated fadeIn">Weekly Hours is mandatory</span>
+                <span *ngIf="f.submitted && !isNumber(f.controls['weeklyHours'].value) && !f.controls['weeklyHours'].errors" class="text-danger animated fadeIn">Weekly hours must contains only digits</span>
+                <div class="form-group row">
+
+                    <div class="wrap-input100 m-b-16 col m-r-12">
+                        <input class="input100" type="text" name="payments" [(ngModel)]="admin.payments" minlength="1" required placeholder="Payments">
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="wrap-input100 m-b-16 col">
+                        <input class="input100" type="text" name="weeklyHours" [(ngModel)]="admin.weeklyHours" minlength="1" required placeholder="Weekly Hrs">
+                        <span class="focus-input100"></span>
+                    </div>
+                </div>
+
+                <span *ngIf="f.submitted && f.controls['irpf'].errors" class="text-danger animated fadeIn">IRPF</span>
+                <span *ngIf="f.submitted && !isNumber(f.controls['irpf'].value) && !f.controls['irpf'].errors" class="text-danger animated fadeIn">IRPF must contains only digits</span>
+                <span *ngIf="f.submitted && f.controls['phoneNumber'].errors" class="text-danger animated fadeIn">Phone number</span>
+                <span *ngIf="f.submitted && !isNumber(f.controls['phoneNumber'].value) && !f.controls['phoneNumber'].errors" class="text-danger animated fadeIn">Phone number must contains only digits</span>
+                <div class="form-group row">
+
+                    <div class="wrap-input100 m-b-16 col m-r-12">
+                        <input class="input100" type="text" name="irpf" [(ngModel)]="admin.irpf" minlength="1" required placeholder="IRPF">
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="wrap-input100 m-b-16 col">
+                        <input class="input100" type="text" name="phoneNumber" [(ngModel)]="admin.phoneNumber" minlength="9" required placeholder="Phone">
+                        <span class="focus-input100"></span>
+                    </div>
+
+                </div>
+
+                <span *ngIf="!registerCompany && f.submitted && f.controls['companyName'].errors " class="text-danger animated fadeIn">Company is mandatory</span>
+                <div class="wrap-input100 m-b-16" *ngIf="!registerCompany">
+                    <select class=" input100" [(ngModel)]="companyName" name="companyName" required>
+                      <option value="" selected disabled>Choose a company</option>
+                      <option value={{item.id}} *ngFor="let item of companies">{{item.name}}</option>
+                    </select>
+                    <button class="login100-form-btn" (click)="createCompany()">
+                      Create company
+                  </button>
+                </div>
+
+                <div *ngIf="registerCompany">
+                    <span class="login100-form-title p-b-9">New Company</span>
+                    <span *ngIf="f.submitted && f.controls['cName'].errors" class="text-danger animated fadeIn">Name is mandatory</span>
+                    <span *ngIf="f.submitted && f.controls['companyPhone'].errors" class="text-danger animated fadeIn float-right">Phone is mandatory</span>
+                    <span *ngIf="f.submitted && !isNumber(f.controls['companyPhone'].value) && !f.controls['companyPhone'].errors" class="text-danger animated fadeIn">Phone number must contains only digits</span>
+                    <div class="form-group row">
+                        <div class="wrap-input100 m-b-16 col m-r-12">
+                            <input class="input100" type="text" name="cName" [(ngModel)]="company.name" minlength="2" required placeholder="Name">
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 m-b-16 col">
+                            <input class="input100" type="text" name="companyPhone" [(ngModel)]="company.phoneNumber" minlength="9" required placeholder="Phone">
+                            <span class="focus-input100"></span>
+                        </div>
+
+                    </div>
+
+
+                    <span *ngIf="f.submitted && f.controls['country'].errors" class="text-danger animated fadeIn">Country is mandatory</span>
+                    <span *ngIf="f.submitted && f.controls['city'].errors" class="text-danger animated fadeIn float-right">City is mandatory</span>
+                    <div class="form-group row">
+                        <div class="wrap-input100 m-b-16 col m-r-12">
+                            <input class="input100" type="text" name="country" [(ngModel)]="company.country" minlength="2" required placeholder="Country">
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 m-b-16 col">
+                            <input class="input100" type="text" name="city" [(ngModel)]="company.city" minlength="2" required placeholder="City">
+                            <span class="focus-input100"></span>
+                        </div>
+                    </div>
+
+                    <span *ngIf="f.submitted && f.controls['street'].errors" class="text-danger animated fadeIn">Street is mandatory</span>
+                    <span *ngIf="f.submitted && f.controls['postalCode'].errors" class="text-danger animated fadeIn float-right">Postal Code is mandatory</span>
+                    <span *ngIf="f.submitted && !isNumber(f.controls['postalCode'].value) && !f.controls['postalCode'].errors" class="text-danger animated fadeIn">Postal Code must contains only digits</span>
+                    <div class="form-group row">
+                        <div class="wrap-input100 m-b-16 col m-r-12">
+                            <input class="input100" type="text" name="street" [(ngModel)]="company.street" minlength="2" required placeholder="Street">
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 m-b-16 col">
+                            <input class="input100" type="text" name="postalCode" [(ngModel)]="company.postalCode" minlength="5" required placeholder="Postal code">
+                            <span class="focus-input100"></span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="flex-sb-m w-full p-t-3 p-b-24">
+                    <div class="contact100-form-checkbox">
+                        <input [(ngModel)]="remember" class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+                        <label class="label-checkbox100" for="ckb1">
+                                Remember me
+                            </label>
+                    </div>
+                    <div>
+                        <a routerLink="/login" class="txt1">
+                              Do you have an account? / Login
+                          </a>
+                    </div>
+                </div>
+
+                <div class="container-login100-form-btn m-t-5">
+                    <button class="login100-form-btn" type="submit">
+                          Create
+                      </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

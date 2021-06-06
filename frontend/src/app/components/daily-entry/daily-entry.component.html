@@ -1,0 +1,24 @@
+<h1 class="text-white bg-dark">Daily Entries</h1>
+<div class="mt-3 ">
+    <h2>
+        {{ TODAY | date: 'mediumDate' }}
+    </h2>
+    <app-loading *ngIf="loading"></app-loading>
+    <table class="table table-sm mt-3 table-hover" *ngIf="!loading">
+        <thead class="thead-dark">
+            <tr>
+                <th>Entry</th>
+                <th>Departure</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let entry of dailyEntry">
+            <tr>
+                <td>{{entry.entryTime | date: 'HH:mm:ss a' }}</td>
+                <td>{{entry.departureTime | date: 'HH:mm:ss a' }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button type="button" class="btn btn-outline-secondary me-md-2" (click)="toClockin()"><i class="bi bi-clock-history"></i><mat-icon>more_time</mat-icon><span class="ml-1">Clock In</span></button>
+</div>

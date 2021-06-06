@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark" *ngIf="isLogged()">
+    <a class="navbar-brand" href="#">
+        <img src="assets/img/clock-image.png" width="40" height="40" alt=""> Clock-In
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="home">
+                    <mat-icon aria-hidden="false" aria-label="Home">home</mat-icon><span class="ml-1">Home</span>
+                </a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link m-2" routerLink="clockin">Clock In</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link m-2" routerLink="absences">Absences</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link m-2" routerLink="payslips">Pay Slips</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link m-2" routerLink="messages">Messages</a>
+            </li>
+            <li class="nav-item dropdown" routerLinkActive="active" *ngIf="isAdmin()">
+                <a class="nav-link dropdown-toggle m-2" href="#" id="navbarDarkDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
+                Employees
+              </a>
+                <ul class="dropdown-menu " aria-labelledby="navbarDarkDropdownMenuLink">
+                    <li>
+                        <a class="dropdown-item item-dropdown-navbar" routerLink="employees">Employees</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item item-dropdown-navbar" routerLink="search">Search</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="employeeDetail" hidden>Employee</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="login" (click)="logout()">
+                    <mat-icon>logout</mat-icon><span class="ml-1">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>

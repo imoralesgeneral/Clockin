@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <app-info-user></app-info-user>
+        </div>
+        <div class="col">
+            <app-holidays (reload)="update($event)"></app-holidays>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <app-info-company></app-info-company>
+        </div>
+        <div class="col">
+            <app-absences-list></app-absences-list>
+        </div>
+    </div>
+</div>

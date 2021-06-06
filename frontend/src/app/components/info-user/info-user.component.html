@@ -1,0 +1,38 @@
+<h1 class="text-white bg-dark">User details </h1>
+<app-loading *ngIf="loading"></app-loading>
+<table class="table table-sm mt-3 table-hover " *ngIf="!loading">
+    <tbody>
+        <tr>
+            <th scope="row">Name</th>
+            <td>{{user.name}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Email</th>
+            <td>{{user.email}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Username</th>
+            <td>{{user.username}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Phone number</th>
+            <td>{{user.phoneNumber}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Payments</th>
+            <td>{{user.payments}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Salary</th>
+            <td>{{user.salaryYear | currency: 'EUR' }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Weekly Hours</th>
+            <td>{{user.weeklyHours}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Holidays</th>
+            <td>{{user.holidays}}</td>
+        </tr>
+    </tbody>
+</table>

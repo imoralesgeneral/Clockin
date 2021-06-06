@@ -1,0 +1,16 @@
+<div class="container m-1">
+    <div class="row">
+        <div class="col-4">
+            <app-absences-list>[idUser]="3"</app-absences-list>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button type="button" class="btn btn-outline-secondary me-md-2" (click)="toMessages()"><mat-icon>message</mat-icon><span class="ml-1">Messages</span></button>
+            </div>
+        </div>
+        <div class="col-8">
+            <app-edit-employee>[idUser]="3"</app-edit-employee>
+        </div>
+    </div>
+</div>
+<div class="container m-2 mt-2">
+    <app-graph-thirty-days></app-graph-thirty-days>
+</div>

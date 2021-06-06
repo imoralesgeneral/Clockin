@@ -1,0 +1,49 @@
+<h1 class="text-white bg-dark">Payslip</h1>
+
+<div class="row m-1 mt-3  col-auto p-5 text-center">
+    <div id="htmlData">
+        <h2>Payslip -> Month: {{month}}, Year: {{year}}</h2>
+        <table class="table table-sm mt-3">
+            <thead class="table-dark">
+                <tr>
+                    <th>Description</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <h3 class="row m-1 mt-3">Basic: </h3>
+                <tr>
+                    <th scope="row">Salary before taxes and discounts: </th>
+                    <td>{{payslip.salaryBefore | currency: 'EUR' }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Worked hours: </th>
+                    <td>{{payslip.workedHours | number: '.2-2'}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Absence hours: </th>
+                    <td>{{payslip.hoursAbsences | number: '.2-2'}}</td>
+                </tr>
+                <h3 class="row m-1 mt-3">Pluses: </h3>
+                <tr *ngFor="let m of payslip.pluses">
+                    <th scope="row">{{ m.descript }} </th>
+                    <td>{{ m.integ | currency: 'EUR' }}</td>
+                </tr>
+                <h3 class="row m-1 mt-3">Discounts: </h3>
+                <tr *ngFor="let m of payslip.discounts">
+                    <th scope="row">{{ m.descript }} </th>
+                    <td>-{{ m.integ | currency: 'EUR' }}</td>
+                </tr>
+                <h3 class="row m-1 mt-3">Total: </h3>
+                <tr>
+                    <th scope="row">Salary after taxes and discounts: </th>
+                    <td>{{payslip.salaryAfter | currency: 'EUR' }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+<button type="button" class="btn btn-outline-secondary m-5 mt-4" (click)="downloadPDF()"><mat-icon>message</mat-icon><span class="ml-1">Download PDF</span></button>

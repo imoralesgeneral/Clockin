@@ -1,0 +1,43 @@
+<h1 class="text-white bg-dark">Absences list</h1>
+<app-loading *ngIf="loading"></app-loading>
+<div *ngIf="!loading">
+    <div class="mt-4" *ngIf="message.getNumberNotValidated() > 0">
+        <h4>{{message.getNumberNotValidated()}} absences without validate for any admin</h4>
+        <table class="table mt-4">
+            <thead class="table-dark">
+                <tr>
+                    <th>Type absence</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let m of message.not_validated">
+                    <td>{{ m.type }}</td>
+                    <td>{{ m.startTime | date: 'mediumDate' }}</td>
+                    <td>{{ m.endTime | date: 'mediumDate' }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="mt-4" *ngIf="message.getNumberValidated() > 0">
+        <h4>Last {{message.getNumberValidated()}} validated absences</h4>
+        <table class="table mt-4">
+            <thead class="table-dark">
+                <tr>
+                    <th>Type absence</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let m of message.validated">
+                    <td>{{ m.type }}</td>
+                    <td>{{ m.startTime | date: 'mediumDate' }}</td>
+                    <td>{{ m.endTime | date: 'mediumDate' }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

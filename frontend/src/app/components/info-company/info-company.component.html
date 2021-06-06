@@ -1,0 +1,30 @@
+<h1 class="text-white bg-dark">Company details </h1>
+<app-loading *ngIf="loading"></app-loading>
+<table class="table table-sm mt-3 table-hover" *ngIf="!loading">
+    <tbody>
+        <tr>
+            <th scope="row">Name</th>
+            <td>{{company.name}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Country</th>
+            <td>{{company.country}}</td>
+        </tr>
+        <tr>
+            <th scope="row">City</th>
+            <td>{{company.city}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Postal code</th>
+            <td>{{company.postalCode}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Address</th>
+            <td>{{company.street}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Phone number</th>
+            <td>{{company.phoneNumber}}</td>
+        </tr>
+    </tbody>
+</table>

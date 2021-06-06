@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <app-info-user></app-info-user>
+        </div>
+        <div class="col">
+            <app-info-company></app-info-company>
+        </div>
+    </div>
+</div>
+<div class="col-auto p-5 text-center">
+    <mat-form-field appearance="fill">
+        <mat-label>Year</mat-label>
+        <mat-select [(value)]="yearValue">
+            <mat-option *ngFor="let year of years" [value]="year.value">
+                {{year.viewValue}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Month</mat-label>
+        <mat-select [(value)]="monthValue">
+            <mat-option *ngFor="let month of months" [value]="month.value">
+                {{month.viewValue}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <button type="button" class="btn btn btn-outline-success" (click)="requestPayslip()">Request</button>
+</div>

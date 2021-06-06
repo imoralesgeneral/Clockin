@@ -1,0 +1,48 @@
+<h1 class="text-white bg-dark">Messages summary</h1>
+<app-loading *ngIf="loading"></app-loading>
+<div *ngIf="!loading">
+    <div class="mt-3" *ngIf="isAdmin()">
+        <h4>You have {{message.getNumberCompany()}} absences to validate</h4>
+        <table class="table mt-4 ">
+            <thead class="table-dark">
+                <tr>
+                    <th>User code</th>
+                    <th>Type absence</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let m of message.company">
+                <tr>
+                    <td>{{ m.codUser }}</td>
+                    <td>{{ m.type }}</td>
+                    <td>{{ m.startTime | date: 'mediumDate' }}</td>
+                    <td>{{ m.endTime | date: 'mediumDate' }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="mt-3">
+        <h4>You have {{message.getNumberNotValidated()}} absences without validate</h4>
+        <table class="table mt-4">
+            <thead class="table-dark">
+                <tr>
+                    <th>Type absence</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let m of message.not_validated">
+                    <td>{{ m.type }}</td>
+                    <td>{{ m.startTime | date: 'mediumDate' }}</td>
+                    <td>{{ m.endTime | date: 'mediumDate' }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button type="button" class="btn btn-outline-secondary me-md-2" (click)="toMessages()"><mat-icon>message</mat-icon><span class="ml-1">Messages</span></button>
+</div>

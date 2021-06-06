@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <app-info-company></app-info-company>
+        </div>
+        <div class="col-7">
+            <app-register-employee (reload)="update($event)"></app-register-employee>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="loading"></app-loading>
+<div class="card-columns m-2 animated fadeIn" *ngIf="!loading">
+    <div *ngFor="let item of employees" class="card col-sm-6 text-center ">
+        <img class="card-img-top puntero text-center" src="https://icons555.com/images/icons-gray/image_icon_user_pic_512x512.png" (click)="getEmployee( item )">
+        <div class="card-body">
+            <h3 class="card-title puntero" (click)="getEmployee( item )">{{ item.username }} [id:{{ item.id }}]</h3>
+            <p class="card-text puntero" (click)="getEmployee( item )">{{ item.name }}</p>
+            <h4 class="card-subtitle mb-2 text-muted">{{ item.email }}</h4>
+            <h4 class="card-subtitle mb-2 text-muted">{{ item.phoneNumber }}</h4>
+            <p class="card-text" *ngFor="let rol of item.roles" class="badge badge-pill badge-primary">
+                {{rol.type.substring(5)}}
+            </p>
+        </div>
+    </div>
+</div>

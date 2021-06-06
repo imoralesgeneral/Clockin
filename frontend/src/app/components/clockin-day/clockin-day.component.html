@@ -1,0 +1,21 @@
+<h1 class="text-white bg-dark">Clockin your working day</h1>
+<div class="mt-3">
+    <h2>{{ TODAY | date: 'mediumDate' }}</h2>
+    <app-loading *ngIf="loading"></app-loading>
+    <table class="table table-sm mt-3" *ngIf="!loading">
+        <thead class="thead-dark">
+            <tr>
+                <th>Entry</th>
+                <th>Departure</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let entry of dailyEntry">
+            <tr>
+                <td>{{entry.entryTime | date: 'HH:mm:ss a' }}</td>
+                <td>{{entry.departureTime | date: 'HH:mm:ss a' }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <button type="button" class="btn btn-outline-success float-left" (click)="toClockin()" *ngIf="isDeparture()">Clockin</button>
+    <button type="button" class="btn btn-outline-danger float-right" (click)="toClockout()" *ngIf="!isDeparture()">Clockout</button>
+</div>

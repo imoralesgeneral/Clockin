@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col">
+        <input #termino type="text" (keyup)="find(termino.value)" class="form-control" placeholder="Find employee...">
+    </div>
+</div>
+
+<div class="card-columns m-5 animated fadeIn col-sm-7">
+    <div *ngFor="let item of employees" class="card ">
+        <img class="card-img-top puntero" src="https://icons555.com/images/icons-gray/image_icon_user_pic_512x512.png" (click)="getEmployee( item )">
+        <div class="card-body">
+            <h3 class="card-title puntero" (click)="getEmployee( item )">{{ item.username }} [id:{{ item.id }}]</h3>
+            <p class="card-text puntero" (click)="getEmployee( item )">{{ item.name }}</p>
+            <h4 class="card-subtitle mb-2 text-muted">{{ item.email }}</h4>
+            <h4 class="card-subtitle mb-2 text-muted">{{ item.phoneNumber }}</h4>
+            <p class="card-text" *ngFor="let rol of item.roles" class="badge badge-pill badge-primary">
+                {{rol.type.substring(5)}}
+            </p>
+        </div>
+    </div>
+</div>
