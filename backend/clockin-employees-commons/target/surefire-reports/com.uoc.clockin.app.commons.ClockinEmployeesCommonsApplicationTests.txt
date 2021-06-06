@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.uoc.clockin.app.commons.ClockinEmployeesCommonsApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.525 s - in com.uoc.clockin.app.commons.ClockinEmployeesCommonsApplicationTests

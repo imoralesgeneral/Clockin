@@ -1,0 +1,10 @@
+com\uoc\clockin\app\commons\models\entity\Utils.class
+com\uoc\clockin\app\commons\ClockinEmployeesCommonsApplication.class
+com\uoc\clockin\app\commons\models\entity\Company.class
+com\uoc\clockin\app\commons\models\entity\TypeAbsence.class
+com\uoc\clockin\app\commons\models\entity\User.class
+com\uoc\clockin\app\commons\models\entity\DailyEntry.class
+com\uoc\clockin\app\commons\models\entity\TypeRole.class
+com\uoc\clockin\app\commons\models\entity\Role.class
+com\uoc\clockin\app\commons\models\entity\Absence.class
+com\uoc\clockin\app\commons\models\entity\Quantity.class
