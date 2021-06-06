@@ -1,0 +1,9 @@
+zuul:
+  sensitiveHeaders: Cookie,Set-Cookie
+
+  routes:    
+    security:
+      service-id: service-oauth
+      path: /api/security/**
+      sensitive-headers:      - Cookie
+      - Set-Cookie
